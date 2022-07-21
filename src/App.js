@@ -18,6 +18,15 @@ function App() {
 
   const [questionLevel, setQuestionLevel] = useState("easy");
 
+  let DifficultyColor = 'green';
+  if (questionLevel === 'easy') {
+    DifficultyColor = '#32CD32';
+  } else if (questionLevel === 'medium') {
+    DifficultyColor = '#DC6F6F';
+  } else if (questionLevel === 'hard') {
+    DifficultyColor = '#CD0000';
+  }
+
   useEffect(() => {
     const ticker = setTimeout(() => setSeconds(seconds + 1), 1000);
     return () => clearTimeout(ticker);
@@ -63,15 +72,31 @@ function App() {
       <h1>AI Learning</h1>
 
       {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
-      <h2>question Level : {questionLevel}</h2>
+      {/* <h2>Score: {score}</h2>
+      <h2>question Level : {questionLevel}</h2> */}
 
-      {/* 3. Time elapsed  */}
+      {/* 2.1 Time elapsed  */}
       {stopTimer ? (
         <h2>Total Time : {totalTime}</h2>
       ) : (
         <h2>Time Elapsed: {seconds}</h2>
       )}
+
+      <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Score</h5>
+              <p class="card-text">{score}</p>
+            
+            </div>
+        </div>
+        <div class="card" style={{background:`${DifficultyColor}`}}>
+            <div class="card-body" >
+              <h5 class="card-title">Difficulty Level</h5>
+              <p class="card-text" >{questionLevel}</p>
+            </div>
+        </div>
+      </div>
 
       {/* 3. Show results or show the question game  */}
       {showResults ? (
