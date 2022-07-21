@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // components takes precedence over default styles.
 import "./App.css";
 import Questions from "./questions.json";
+import timing from "./timing.json";
 
 function App() {
   // Properties
@@ -15,7 +16,7 @@ function App() {
   const [totalTime, setTotalTime] = useState(0);
   const [stopTimer, setStopTimer] = useState(false);
 
-  const [questionLevel, setQuestionLevel] = useState('easy');
+  const [questionLevel, setQuestionLevel] = useState("easy");
 
   useEffect(() => {
     const ticker = setTimeout(() => setSeconds(seconds + 1), 1000);
@@ -46,8 +47,14 @@ function App() {
     setCurrentQuestion(0);
     setShowResults(false);
     setSeconds(0);
-    setQuestionLevel('medium');
     setStopTimer(false);
+
+    // logic for which question set will be displayed
+    if (questionLevel === "easy" && totalTime < timing.easy)
+      setQuestionLevel("medium");
+    else if (questionLevel === "medium" && totalTime < timing.medium)
+      setQuestionLevel("hard");
+    else setQuestionLevel("easy");
   };
 
   return (
@@ -57,6 +64,7 @@ function App() {
 
       {/* 2. Current Score  */}
       <h2>Score: {score}</h2>
+      <h2>question Level : {questionLevel}</h2>
 
       {/* 3. Time elapsed  */}
       {stopTimer ? (
@@ -83,9 +91,12 @@ function App() {
           {/* Current Question  */}
           <div className="card-body">
             <h2>
-              Question: {currentQuestion + 1} out of {Questions[questionLevel].length}
+              Question: {currentQuestion + 1} out of{" "}
+              {Questions[questionLevel].length}
             </h2>
-            <h3 className="question-text">{Questions[questionLevel][currentQuestion].text}</h3>
+            <h3 className="question-text">
+              {Questions[questionLevel][currentQuestion].text}
+            </h3>
           </div>
 
           {/* List of possible answers  */}

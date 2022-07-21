@@ -57,86 +57,113 @@
       ]
     },
     {
-      "text": "What year was the Constitution of America written?",
+      "text": "Which type of Programming does Python support?",
       "options": [
-        { "id": 0, "text": "1787", "isCorrect": true },
-        { "id": 1, "text": "1776", "isCorrect": false },
-        { "id": 2, "text": "1774", "isCorrect": false },
-        { "id": 3, "text": "1826", "isCorrect": false }
+        { "id": 0, "text": "object-oriented programming", "isCorrect": false },
+        { "id": 1, "text": "structured programming", "isCorrect": false },
+        { "id": 2, "text": "functional programming", "isCorrect": false },
+        { "id": 3, "text": "all of the mentioned", "isCorrect": true }
       ]
     },
     {
-      "text": "Who was the second president of the US?",
+      "text": "What is the name of the Python interpreter?",
       "options": [
-        { "id": 0, "text": "John Adams", "isCorrect": true },
-        { "id": 1, "text": "Paul Revere", "isCorrect": false },
-        { "id": 2, "text": "Thomas Jefferson", "isCorrect": false },
-        { "id": 3, "text": "Benjamin Franklin", "isCorrect": false }
+        { "id": 0, "text": "Python", "isCorrect": true },
+        { "id": 1, "text": "Python3", "isCorrect": false },
+        { "id": 2, "text": "Python2", "isCorrect": false },
+        { "id": 3, "text": "Python4", "isCorrect": false }
       ]
     },
     {
-      "text": "What is the largest state in the US?",
+      "text": "What is the name of the Python package for web development?",
       "options": [
-        { "id": 0, "text": "California", "isCorrect": false },
-        { "id": 1, "text": "Alaska", "isCorrect": true },
-        { "id": 2, "text": "Texas", "isCorrect": false },
-        { "id": 3, "text": "Montana", "isCorrect": false }
+        { "id": 0, "text": "Flask", "isCorrect": true },
+        { "id": 1, "text": "Django", "isCorrect": false },
+        { "id": 2, "text": "Bottle", "isCorrect": false },
+        { "id": 3, "text": "Express", "isCorrect": false }
       ]
     },
     {
-      "text": "Which of the following countries DO NOT border the US?",
+      "text": "What is the name of the Python package for data analysis?",
       "options": [
-        { "id": 0, "text": "Canada", "isCorrect": false },
-        { "id": 1, "text": "Russia", "isCorrect": true },
-        { "id": 2, "text": "Cuba", "isCorrect": true },
-        { "id": 3, "text": "Mexico", "isCorrect": false }
+        { "id": 0, "text": "Pandas", "isCorrect": false },
+        { "id": 1, "text": "Numpy", "isCorrect": false },
+        { "id": 2, "text": "Matplotlib", "isCorrect": false },
+        { "id": 3, "text": "Seaborn", "isCorrect": true }
+      ]
+    },
+    {
+      "text": "What is the name of the Python package for data visualization?",
+      "options": [
+        { "id": 0, "text": "Matplotlib", "isCorrect": false },
+        { "id": 1, "text": "Seaborn", "isCorrect": false },
+        { "id": 2, "text": "Pandas", "isCorrect": false },
+        { "id": 3, "text": "Numpy", "isCorrect": true }
+      ]
+    },
+    {
+      "text": "What is the name of the Python package for data manipulation?",
+      "options": [
+        { "id": 0, "text": "Pandas", "isCorrect": false },
+        { "id": 1, "text": "Numpy", "isCorrect": false },
+        { "id": 2, "text": "Matplotlib", "isCorrect": false },
+        { "id": 3, "text": "Seaborn", "isCorrect": true }
       ]
     }
   ],
   "hard": [
     {
-      "text": "What is the capital of America?",
+      "text": "Which of the following is the truncation division operator in Python?",
       "options": [
-        { "id": 0, "text": "New York City", "isCorrect": false },
-        { "id": 1, "text": "Boston", "isCorrect": false },
-        { "id": 2, "text": "Santa Fe", "isCorrect": false },
-        { "id": 3, "text": "Washington DC", "isCorrect": true }
+        { "id": 0, "text": "|", "isCorrect": false },
+        { "id": 1, "text": "//", "isCorrect": false },
+        { "id": 2, "text": "/", "isCorrect": true },
+        { "id": 3, "text": "%", "isCorrect": false }
       ]
     },
     {
-      "text": "What year was the Constitution of America written?",
+      "text": "Which of the following is the floor division operator in Python?",
       "options": [
-        { "id": 0, "text": "1787", "isCorrect": true },
-        { "id": 1, "text": "1776", "isCorrect": false },
-        { "id": 2, "text": "1774", "isCorrect": false },
-        { "id": 3, "text": "1826", "isCorrect": false }
+        { "id": 0, "text": "//", "isCorrect": true },
+        { "id": 1, "text": "/", "isCorrect": false },
+        { "id": 2, "text": "|", "isCorrect": false },
+        { "id": 3, "text": "%", "isCorrect": false }
       ]
     },
     {
-      "text": "Who was the second president of the US?",
+      "text": "Which of the following is the modulus division operator in Python?",
       "options": [
-        { "id": 0, "text": "John Adams", "isCorrect": true },
-        { "id": 1, "text": "Paul Revere", "isCorrect": false },
-        { "id": 2, "text": "Thomas Jefferson", "isCorrect": false },
-        { "id": 3, "text": "Benjamin Franklin", "isCorrect": false }
+        { "id": 0, "text": "%", "isCorrect": true },
+        { "id": 1, "text": "//", "isCorrect": false },
+        { "id": 2, "text": "/", "isCorrect": false },
+        { "id": 3, "text": "|", "isCorrect": false }
       ]
     },
     {
-      "text": "What is the largest state in the US?",
+      "text": "Which of the following is the exponentiation operator in Python?",
       "options": [
-        { "id": 0, "text": "California", "isCorrect": false },
-        { "id": 1, "text": "Alaska", "isCorrect": true },
-        { "id": 2, "text": "Texas", "isCorrect": false },
-        { "id": 3, "text": "Montana", "isCorrect": false }
+        { "id": 0, "text": "**", "isCorrect": true },
+        { "id": 1, "text": "^", "isCorrect": false },
+        { "id": 2, "text": "*", "isCorrect": false },
+        { "id": 3, "text": "/", "isCorrect": false }
       ]
     },
     {
-      "text": "Which of the following countries DO NOT border the US?",
+      "text": "Which of the following is the bitwise AND operator in Python?",
       "options": [
-        { "id": 0, "text": "Canada", "isCorrect": false },
-        { "id": 1, "text": "Russia", "isCorrect": true },
-        { "id": 2, "text": "Cuba", "isCorrect": true },
-        { "id": 3, "text": "Mexico", "isCorrect": false }
+        { "id": 0, "text": "&", "isCorrect": true },
+        { "id": 1, "text": "|", "isCorrect": false },
+        { "id": 2, "text": "^", "isCorrect": false },
+        { "id": 3, "text": "~", "isCorrect": false }
+      ]
+    },
+    {
+      "text": "Which of the following is the bitwise OR operator in Python?",
+      "options": [
+        { "id": 0, "text": "|", "isCorrect": true },
+        { "id": 1, "text": "&", "isCorrect": false },
+        { "id": 2, "text": "^", "isCorrect": false },
+        { "id": 3, "text": "~", "isCorrect": false }
       ]
     }
   ]
