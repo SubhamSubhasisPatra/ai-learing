@@ -63,22 +63,31 @@ function App() {
     setStopTimer(false);
 
     // logic for which question set will be displayed
-    if (questionLevel === "easy" && totalTime < timing.easy)
-      setQuestionLevel("medium");
+    if (questionLevel === "easy" && totalTime < timing.easy) {
+      // API python 
+      if ((score / Questions[questionLevel].length) * 100 >= 60) {
+        setQuestionLevel("medium");
+      } else {
+        setQuestionLevel("easy");
+      }
+    }
+
     else if (questionLevel === "medium" && totalTime < timing.medium)
       setQuestionLevel("hard");
     else setQuestionLevel("easy");
   };
 
   return (
-    <div style={{background : `${mainbg}`}}>
-      <div className="App container" style={{ padding: "5px", background : `${sideColor}` }}>
+    <div style={{ background: `${mainbg}` }}>
+      <div className="App container" style={{ padding: "5px", background: `${sideColor}` }}>
 
 
-        <div className="card" style={{ padding: "5px", background : `${sideColor}` }}>
+        <div className="card" style={{ padding: "5px", background: `${sideColor}` }}>
           <div className="card-body">
             {/* 1. Header  */}
-            <h1>AI Learning</h1>
+            <div className="card" style={{ background: 'salmon' }}>
+              <h1>New Gen Learning</h1>
+            </div>
             {/* 2.1 Time elapsed  */}
             {stopTimer ? (
               <h2>Total Time : {totalTime}</h2>
@@ -86,7 +95,7 @@ function App() {
               <h2>Time Elapsed: {seconds}</h2>
             )}
           </div>
-          <div class="card-group" style={{ padding: "5px" , background : `${sideColor}` }}>
+          <div class="card-group" style={{ padding: "5px", background: `${sideColor}` }}>
             <div class="card" style={{ background: `${scoreColor}`, padding: "5px" }}>
               <div class="card-body">
                 <h5 class="card-title">Score</h5>
@@ -117,7 +126,7 @@ function App() {
           </div>
         ) : (
           /* 5. Question Card  */
-          <div className="card" style={{ padding: "5px", background : `${sideColor}` }}>
+          <div className="card" style={{ padding: "5px", background: `${sideColor}` }}>
             {/* Current Question  */}
             <div className="card-body">
               <h2>
@@ -131,20 +140,20 @@ function App() {
 
             {/* List of possible answers  */}
             <div >
-            <ul className="list-group list-group-flush" style={{padding: "5px"}}>
-              {Questions[questionLevel][currentQuestion].options.map((option) => {
-                return (
-                  <li
-                  style={{background : '#7D9D9C', padding: "5px"}}
-                    className="list-group-item"
-                    key={option.id}
-                    onClick={() => optionClicked(option.isCorrect)}
-                  >
-                    {option.text}
-                  </li>
-                );
-              })}
-            </ul>
+              <ul className="list-group list-group-flush" style={{ padding: "5px" }}>
+                {Questions[questionLevel][currentQuestion].options.map((option) => {
+                  return (
+                    <li
+                      style={{ background: '#7D9D9C', padding: "5px" }}
+                      className="list-group-item"
+                      key={option.id}
+                      onClick={() => optionClicked(option.isCorrect)}
+                    >
+                      {option.text}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         )}
