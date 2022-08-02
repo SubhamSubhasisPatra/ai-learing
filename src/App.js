@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import Questions from "./questions.json";
 import timing from "./timing.json";
+import _ from "lodash";
 
 function App() {
   // Properties
@@ -18,18 +19,20 @@ function App() {
 
   const [questionLevel, setQuestionLevel] = useState("easy");
 
-  let DifficultyColor = 'green';
-  if (questionLevel === 'easy') {
-    DifficultyColor = '#32CD32';
-  } else if (questionLevel === 'medium') {
-    DifficultyColor = '#DC6F6F';
-  } else if (questionLevel === 'hard') {
-    DifficultyColor = '#CD0000';
+  // Questions[questionLevel] = _.shuffle(Questions[questionLevel]);
+
+  let DifficultyColor = "green";
+  if (questionLevel === "easy") {
+    DifficultyColor = "#32CD32";
+  } else if (questionLevel === "medium") {
+    DifficultyColor = "#DC6F6F";
+  } else if (questionLevel === "hard") {
+    DifficultyColor = "#CD0000";
   }
 
-  let scoreColor = 'lightBlue';
-  let mainbg = 'white';
-  let sideColor = 'white';
+  let scoreColor = "lightBlue";
+  let mainbg = "white";
+  let sideColor = "white";
 
   useEffect(() => {
     const ticker = setTimeout(() => setSeconds(seconds + 1), 1000);
@@ -64,28 +67,30 @@ function App() {
 
     // logic for which question set will be displayed
     if (questionLevel === "easy" && totalTime < timing.easy) {
-      // API python 
+      // API python
       if ((score / Questions[questionLevel].length) * 100 >= 60) {
         setQuestionLevel("medium");
       } else {
         setQuestionLevel("easy");
       }
-    }
-
-    else if (questionLevel === "medium" && totalTime < timing.medium)
+    } else if (questionLevel === "medium" && totalTime < timing.medium)
       setQuestionLevel("hard");
     else setQuestionLevel("easy");
   };
 
   return (
     <div style={{ background: `${mainbg}` }}>
-      <div className="App container" style={{ padding: "5px", background: `${sideColor}` }}>
-
-
-        <div className="card" style={{ padding: "5px", background: `${sideColor}` }}>
+      <div
+        className="App container"
+        style={{ padding: "5px", background: `${sideColor}` }}
+      >
+        <div
+          className="card"
+          style={{ padding: "5px", background: `${sideColor}` }}
+        >
           <div className="card-body">
             {/* 1. Header  */}
-            <div className="card" style={{ background: 'salmon' }}>
+            <div className="card" style={{ background: "salmon" }}>
               <h1>New Gen Learning</h1>
             </div>
             {/* 2.1 Time elapsed  */}
@@ -95,18 +100,26 @@ function App() {
               <h2>Time Elapsed: {seconds}</h2>
             )}
           </div>
-          <div class="card-group" style={{ padding: "5px", background: `${sideColor}` }}>
-            <div class="card" style={{ background: `${scoreColor}`, padding: "5px" }}>
+          <div
+            class="card-group"
+            style={{ padding: "5px", background: `${sideColor}` }}
+          >
+            <div
+              class="card"
+              style={{ background: `${scoreColor}`, padding: "5px" }}
+            >
               <div class="card-body">
                 <h5 class="card-title">Score</h5>
                 <p class="card-text">{score}</p>
-
               </div>
             </div>
-            <div class="card" style={{ background: `${DifficultyColor}`, padding: "5px" }}>
-              <div class="card-body" >
+            <div
+              class="card"
+              style={{ background: `${DifficultyColor}`, padding: "5px" }}
+            >
+              <div class="card-body">
                 <h5 class="card-title">Difficulty Level</h5>
-                <p class="card-text" >{questionLevel}</p>
+                <p class="card-text">{questionLevel}</p>
               </div>
             </div>
           </div>
@@ -126,33 +139,52 @@ function App() {
           </div>
         ) : (
           /* 5. Question Card  */
-          <div className="card" style={{ padding: "5px", background: `${sideColor}` }}>
+          <div
+            className="card"
+            style={{ padding: "5px", background: `${sideColor}` }}
+          >
             {/* Current Question  */}
             <div className="card-body">
               <h2>
                 Question: {currentQuestion + 1} out of{" "}
                 {Questions[questionLevel].length}
               </h2>
-              <h3 className="question-text">
-                {Questions[questionLevel][currentQuestion].text}
-              </h3>
+              <div>
+                <h3 className="question-text">
+                  {Questions[questionLevel][currentQuestion].text}
+                </h3>
+                {Questions[questionLevel][currentQuestion].imageData ? (
+                  <img
+                    src={Questions[questionLevel][currentQuestion].imageData}
+                    style={{ height: "200px", width: "200px" }}
+                    alt=""
+                  />
+                ) : (
+                  <span></span>
+                )}
+              </div>
             </div>
 
             {/* List of possible answers  */}
-            <div >
-              <ul className="list-group list-group-flush" style={{ padding: "5px" }}>
-                {Questions[questionLevel][currentQuestion].options.map((option) => {
-                  return (
-                    <li
-                      style={{ background: '#7D9D9C', padding: "5px" }}
-                      className="list-group-item"
-                      key={option.id}
-                      onClick={() => optionClicked(option.isCorrect)}
-                    >
-                      {option.text}
-                    </li>
-                  );
-                })}
+            <div>
+              <ul
+                className="list-group list-group-flush"
+                style={{ padding: "5px" }}
+              >
+                {Questions[questionLevel][currentQuestion].options.map(
+                  (option) => {
+                    return (
+                      <li
+                        style={{ background: "#7D9D9C", padding: "5px" }}
+                        className="list-group-item"
+                        key={option.id}
+                        onClick={() => optionClicked(option.isCorrect)}
+                      >
+                        {option.text}
+                      </li>
+                    );
+                  }
+                )}
               </ul>
             </div>
           </div>

@@ -11,6 +11,7 @@
     },
     {
       "text": "What year was the Constitution of America written?",
+      "imageData": "https://security.ufl.edu/media/securityufledu/Bad-System-Diagram.png",
       "options": [
         { "id": 0, "text": "1787", "isCorrect": true },
         { "id": 1, "text": "1776", "isCorrect": false },
